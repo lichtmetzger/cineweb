@@ -2,6 +2,8 @@
 
 An alternative frontend for booking tickets at Cinestar movie theatres.
 
+<img src="./_doc/Screenshot_20231215_194623.png" />
+
 ## See it in action here: <a href="https://cs.lichtmetzger.de">cs.lichtmetzger.de</a>
 
 ## How to build
