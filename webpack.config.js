@@ -29,5 +29,12 @@ module.exports = {
     filename: 'cineweb.js',
     path: path.resolve(__dirname, 'dist'),
   },
-  mode: 'production'
+  mode: 'production',
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+    compress: true,
+    port: 9000,
+  },
 };
