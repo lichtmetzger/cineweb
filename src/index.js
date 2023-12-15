@@ -1,8 +1,8 @@
-import AppWindow from './app-window';
+import AppWindow from './AppWindow';
 import style from './style.scss';
 (function(window){
-  let _init = (params)=> {
-      AppWindow.generate(params);
+  let _init = ()=> {
+    const ap = new AppWindow();
   }
   window.Cineweb = {
     init:_init
