@@ -54,8 +54,14 @@ class Header {
         this.eventHandler.cinemaChosen(); 
       });
 
-      this.output.appendChild(selectElement);
-      this.output.appendChild(goButton);
+      // Wrapper for select and button
+      const inputWrapper = document.createElement('div');
+      inputWrapper.setAttribute('class', 'cinema-selector');
+
+      inputWrapper.appendChild(selectElement);
+      inputWrapper.appendChild(goButton);
+
+      this.output.appendChild(inputWrapper);
     });
   }
 }

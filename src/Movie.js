@@ -22,7 +22,6 @@ class Movie {
     <h3 class="title">${this.getTitle()}</h3>
     <h4 class="subtitle">${this.getSubtitle()}</h4>
     <span class="date">Start date: ${this.getStartDate()}</span>
-    <div id="showtimes"></div>
     `;
 
     return card;

@@ -11,7 +11,6 @@ class ShowTimes {
     this.id = id;
 		this.showTimeData = showTimeData;
     this.eventDiv = document.querySelector(`div[data-id="${this.id}"]`);
-    this.output = this.eventDiv.querySelector('#showtimes');
     this.utils = new Utils;
 	}
 
@@ -25,10 +24,14 @@ class ShowTimes {
 
   addNextShowtimeDate() {
     const dateRaw = this.showTimeData[0].datetime;
-    this.output.innerHTML = 'Upcoming: ' + this.utils.parseDate(dateRaw);
+    this.eventDiv.innerHTML += 'Upcoming: ' + this.utils.parseDate(dateRaw);
   }
 
   addButton() {
+    // Flex space
+    const flexSpacer = document.createElement('div');
+    flexSpacer.setAttribute('class', 'flex-spacer');
+
     // Showtimes button
     const stButton = document.createElement('button');
     stButton.textContent = 'Display showtimes';
@@ -38,7 +41,8 @@ class ShowTimes {
       this.toggleShowtimesBox();
     });
 
-    this.output.appendChild(stButton);
+    this.eventDiv.appendChild(flexSpacer);
+    this.eventDiv.appendChild(stButton);
   }
 
   generateShowtimes() {
