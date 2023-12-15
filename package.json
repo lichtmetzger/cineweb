@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "serve": "webpack serve"
+    "serve": "webpack serve",
+    "transfer": "rsync -avz --delete -e ssh ./dist/ lichtmetzger@46.4.60.44:cs.lichtmetzger.de/",
+    "deploy": "npm run build && npm run transfer"
   },
   "keywords": [],
   "author": "Danny Schmarsel",
