@@ -1,10 +1,15 @@
 import LocalStorage from "./LocalStorage";
 
 class Api {
+  constructor() {
+		//this.baseUrl = 'https://www.cinestar.de/api'
+    this.baseUrl = 'https://cs.lichtmetzger.de/api'
+	}
+
   async getCinemas() {
     try {
         const source = await fetch(
-            `https://www.cinestar.de/api/cinema/?appVersion=1.5.3`
+            `${this.baseUrl}/cinema/?appVersion=1.5.3`
         );
         const data = await source.json();
 
@@ -20,7 +25,7 @@ class Api {
 
     try {
         const source = await fetch(
-            `https://www.cinestar.de/api/cinema/${cinemaId}/show/?appVersion=1.5.3`
+            `${this.baseUrl}/cinema/${cinemaId}/show/?appVersion=1.5.3`
         );
         const data = await source.json();
 
