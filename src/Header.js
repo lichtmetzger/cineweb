@@ -1,11 +1,13 @@
 import Api from "./Api";
 import LocalStorage from "./LocalStorage";
+import EventHandler from "./EventHandler";
 
 class Header {
   constructor() {
     this.storage = new LocalStorage;
+    this.eventHandler = new EventHandler;
 		this.output = document.getElementById('header');
-    this.addCinemaPicker;
+    this.addCinemaPicker();
 	}
 
   addCinemaPicker() {
@@ -18,16 +20,18 @@ class Header {
 
       cinemas.forEach(cinema => {
         const optionElement = document.createElement('option');
-        optionElement.value = cinema.cinemaNumber;
+        optionElement.value = cinema.id;
         // Shorten the name
         optionElement.textContent = cinema.name;
         selectElement.appendChild(optionElement);        
       });
 
       // Auto-set cinema when previously set
-      const storedCinemaNumber = this.storage.getValue('cinemaNumber');
-      if (storedCinemaNumber) {
-        selectElement.value = storedCinemaNumber;
+      const storedCinemaId = this.storage.getValue('cinemaId');
+      if (storedCinemaId) {
+        selectElement.value = storedCinemaId;
+        // Fire event to notify that the cinema is available
+        this.eventHandler.cinemaChosen();        
       }
 
       // Go button
@@ -35,12 +39,15 @@ class Header {
       goButton.textContent = 'Select this cinema';
       goButton.addEventListener('click', () => {
         // Save the selected cinema into localStorage
-        const cinemaNumber = selectElement.value;
-        const selectedOption = [...selectElement.options].find(option => option.value === cinemaNumber);
+        const cinemaId = selectElement.value;
+        const selectedOption = [...selectElement.options].find(option => option.value === cinemaId);
         const cinemaName = selectedOption.textContent;
 
-        this.storage.addValue('cinemaNumber', cinemaNumber)
-        this.storage.addValue('cinemaName', cinemaName)
+        this.storage.addValue('cinemaId', cinemaId);
+        this.storage.addValue('cinemaName', cinemaName);
+
+        // Fire event to notify that the cinema has changed
+        this.eventHandler.cinemaChosen(); 
       });
 
       this.output.appendChild(selectElement);

@@ -1,8 +1,10 @@
 import Header from "./Header";
+import Body from "./Body";
+
 class AppWindow {
 	constructor() {
     const header = new Header;
-    header.addCinemaPicker();
+    const body = new Body;
 	}
 }
 
