@@ -3,7 +3,8 @@ class LocalStorage {
 	constructor() {
 		this.allowedKeys = [
 			'cinemaId',
-			'cinemaName'
+			'cinemaName',
+			'cinemaNumber'
 		];
 	}
 

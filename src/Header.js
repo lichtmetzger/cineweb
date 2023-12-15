@@ -21,6 +21,7 @@ class Header {
       cinemas.forEach(cinema => {
         const optionElement = document.createElement('option');
         optionElement.value = cinema.id;
+        optionElement.setAttribute('data-cinema-number', cinema.cinemaNumber);
         // Shorten the name
         optionElement.textContent = cinema.name;
         selectElement.appendChild(optionElement);        
@@ -28,7 +29,8 @@ class Header {
 
       // Auto-set cinema when previously set
       const storedCinemaId = this.storage.getValue('cinemaId');
-      if (storedCinemaId) {
+      const storedCinemaNumber = this.storage.getValue('cinemaNumber');
+      if (storedCinemaId && storedCinemaNumber) {
         selectElement.value = storedCinemaId;
         // Fire event to notify that the cinema is available
         this.eventHandler.cinemaChosen();        
@@ -42,9 +44,11 @@ class Header {
         const cinemaId = selectElement.value;
         const selectedOption = [...selectElement.options].find(option => option.value === cinemaId);
         const cinemaName = selectedOption.textContent;
+        const cinemaNumber = selectedOption.getAttribute('data-cinema-number');
 
         this.storage.addValue('cinemaId', cinemaId);
         this.storage.addValue('cinemaName', cinemaName);
+        this.storage.addValue('cinemaNumber', cinemaNumber);
 
         // Fire event to notify that the cinema has changed
         this.eventHandler.cinemaChosen(); 
