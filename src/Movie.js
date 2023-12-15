@@ -39,7 +39,7 @@ class Movie {
   getStartDate() {
     const dateRaw = this.movieData.startDate;
 
-    return this.utils.parseDate(dateRaw);
+    return this.utils.parseDate(dateRaw, { hideTime: true });
   }
 
   getShowtimeData() {
