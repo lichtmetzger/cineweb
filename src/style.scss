@@ -152,5 +152,13 @@ body {
         border: 1px dotted #fff;
         padding: 1em 2em;
         margin: 1em;
+
+        .credits {
+            a {
+                color: $color-white;
+                text-decoration: none;
+                font-weight: 600;
+            }
+        }
     }
 }
