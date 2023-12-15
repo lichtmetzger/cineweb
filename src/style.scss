@@ -1,6 +1,7 @@
 body {
     background: #000;
     color: #fff;
+    font-family: "Gill Sans", sans-serif;
 
     #header {
         border: 1px dotted #fff;
@@ -12,6 +13,33 @@ body {
         border: 1px dotted #fff;
         padding: 1em 2em;
         margin: 1em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+
+        .card {
+            width: calc( 33.3% - 0.5em );
+            border: 1px solid gold;
+            box-sizing: border-box;
+            padding: 1em;
+
+            img {
+                height: 150px;
+            }
+
+            .title {
+                margin-bottom: 0;
+                font-weight: 600;
+            }
+
+            .subtitle {
+                margin-top: 5px;
+                color: #ccc;
+                font-size: 0.8em;
+                text-transform: uppercase;
+                font-weight: 300;
+            }
+        }
     }
 
     #footer {
