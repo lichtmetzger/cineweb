@@ -1,21 +1,20 @@
+import Utils from "./Utils";
 class Movie {
   movieData;
   
   constructor(movieData) {
 		this.movieData = movieData;
+    this.utils = new Utils;
 	}
 
   getCard() {
-    //console.log(this.movieData);
-
     const cardHtml = 
     `<div class="card" data-id="${this.getId()}" data-event-id="${this.getEventId()}">
       <div class="thumb"><img src="${this.getThumbUrl()}" alt="${this.getTitle()}" /></div>
       <h3 class="title">${this.getTitle()}</h3>
       <h4 class="subtitle">${this.getSubtitle()}</h4>
-      <span class="date">Presale starts: ${this.getStartDate()}</span>
+      <span class="date">Start date: ${this.getStartDate()}</span>
     </div>`;
-
 
     return cardHtml;
   }
@@ -30,26 +29,12 @@ class Movie {
 
   getStartDate() {
     const dateRaw = new Date(this.movieData.startDate);
-    let dateParsed = "No date available (yet)";
 
-    if(dateRaw) {
-      const options = {
-        timeZone: 'Europe/Berlin',
-        year: 'numeric',
-        month: 'numeric',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-      };
+    return this.utils.parseDate(dateRaw);
+  }
 
-      try {
-        dateParsed = new Intl.DateTimeFormat('de-DE', options).format(dateRaw);
-      } catch (error) {
-        dateParsed = "No date available (yet)";
-      } 
-    }
-
-    return dateParsed;
+  getShowtimes() {
+    return this.movieData.showtimes;
   }
 
   getSubtitle() {
