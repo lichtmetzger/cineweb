@@ -1,9 +1,11 @@
 class Utils {
 
-  parseDate(rawDateString) {
+  parseDate(input) {
     let dateParsed = "No date available (yet)";
 
-    if(rawDateString) {
+    if(input) {
+      const dateRaw = new Date(input);
+
       const options = {
         timeZone: 'Europe/Berlin',
         year: 'numeric',
@@ -14,7 +16,7 @@ class Utils {
       };
 
       try {
-        dateParsed = new Intl.DateTimeFormat('de-DE', options).format(rawDateString);
+        dateParsed = new Intl.DateTimeFormat('de-DE', options).format(dateRaw);
       } catch (error) {
         dateParsed = "No date available (yet)";
       } 

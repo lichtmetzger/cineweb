@@ -1,5 +1,6 @@
 import Api from "./Api";
 import Movie from "./Movie";
+import ShowTimes from "./ShowTimes";
 
 class Body {
   constructor() {
@@ -36,7 +37,11 @@ class Body {
 
       movies.forEach(movieData => {
          const movie = new Movie(movieData);
-         this.output.innerHTML += movie.getCard();
+         const cardElement = movie.getCard();
+         this.output.append(cardElement);
+
+         const st = new ShowTimes(movie.getId(), movie.getShowtimeData());
+         st.assemble();
       });
     });
   }

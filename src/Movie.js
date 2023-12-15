@@ -8,15 +8,24 @@ class Movie {
 	}
 
   getCard() {
-    const cardHtml = 
-    `<div class="card" data-id="${this.getId()}" data-event-id="${this.getEventId()}">
-      <div class="thumb"><img src="${this.getThumbUrl()}" alt="${this.getTitle()}" /></div>
-      <h3 class="title">${this.getTitle()}</h3>
-      <h4 class="subtitle">${this.getSubtitle()}</h4>
-      <span class="date">Start date: ${this.getStartDate()}</span>
-    </div>`;
+    const id = this.getId();
+    const eventId = this.getEventId();
+    
+    let card = document.createElement('div');
+    card.setAttribute('class', 'card');
+    card.setAttribute('data-id', id);
+    card.setAttribute('data-event-id', eventId);
 
-    return cardHtml;
+    card.innerHTML = 
+    `
+    <div class="thumb"><img src="${this.getThumbUrl()}" alt="${this.getTitle()}" /></div>
+    <h3 class="title">${this.getTitle()}</h3>
+    <h4 class="subtitle">${this.getSubtitle()}</h4>
+    <span class="date">Start date: ${this.getStartDate()}</span>
+    <div id="showtimes"></div>
+    `;
+
+    return card;
   }
 
   getEventId() {
@@ -28,12 +37,12 @@ class Movie {
   }
 
   getStartDate() {
-    const dateRaw = new Date(this.movieData.startDate);
+    const dateRaw = this.movieData.startDate;
 
     return this.utils.parseDate(dateRaw);
   }
 
-  getShowtimes() {
+  getShowtimeData() {
     return this.movieData.showtimes;
   }
 
