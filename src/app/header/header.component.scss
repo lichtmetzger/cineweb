@@ -1,0 +1,18 @@
+::ng-deep app-header {
+    border: 1px dotted var(--color-white);
+    padding: 1em 2em;
+    margin: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media(max-width: 715px) {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    &:before {
+        content: "CINEWEB";
+        line-height: 1em;
+    }
+}

@@ -1,4 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
 :root {
-    --color-gold: #123;
+    --color-gold: rgb(255, 196, 0);
+    --color-gray-dark: #707070;
+    --color-gray-light: #ccc;
+    --color-white: #d3d3d3;
+    --color-black: #131313;
+}
+
+body {
+    background: var(--color-black);
+    color: var(--color-white);
+    font-family: "Gill Sans", sans-serif;
 }
