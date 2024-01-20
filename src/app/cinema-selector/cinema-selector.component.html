@@ -50,7 +50,8 @@
     <option value="57" data-cinema-number="80001">CineStar Neumünster</option>
 </select>
 <button [disabled]="cinemaId == 0" (click)="onSetCinema()">Select this cinema</button>
-<span *ngIf="cinemaSet; else cinemaNotSet">Selected: {{cinemaId}}</span>
-<ng-template #cinemaNotSet>
-    <p>No cinema selected</p>
-</ng-template>
+@if(cinemaSet) {
+<span>Selected: {{cinemaId}}</span>
+} @else {
+<p>No cinema selected</p>
+}
