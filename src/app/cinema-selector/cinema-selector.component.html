@@ -11,7 +11,7 @@
 <button [disabled]="cinemaId == 0" (click)="onSetCinema()">
     Select this cinema
 </button>
-@if (cinemaSet && cinemaId != 0) {
+@if (cinemaSet) {
     <span>Selected: {{ cinemaId }}</span>
 } @else {
     <span>No cinema selected</span>

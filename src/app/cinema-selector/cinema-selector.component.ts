@@ -45,6 +45,10 @@ export class CinemaSelectorComponent {
     cinemaSet = false;
 
     onSetCinema() {
+        if(this.cinemaId != 0) {
+            this.cinemaSet = false;
+        }
+
         this.cinemaSet = true;
     }
 }
