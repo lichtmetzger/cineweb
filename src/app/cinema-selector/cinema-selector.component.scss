@@ -1,0 +1,36 @@
+::ng-deep app-cinema-selector {
+    display: flex;
+    align-items: center;
+
+    @media(max-width: 690px) {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    select {
+        background-color: var(--color-black-deep);
+        border: 1px solid var(--color-gold);
+        color: var(--color-white);
+        padding: 0.25em;
+        max-width: 75vw;
+        margin-right: 1em;
+
+        @media(max-width: 690px) {
+            margin-right: 0;
+        }
+    }
+
+    button {
+        background: var(--color-gold);
+        color: var(--color-black);
+        border: 1px solid var(--color-gold);
+        font-weight: 600;
+        padding: 0.25em;
+
+        &:disabled {
+            background: var(--color-black);
+            color: var(--color-gray-dark);
+            border: 1px solid var(--color-gray-dark);
+        }
+    }
+}

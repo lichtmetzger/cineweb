@@ -1,0 +1,53 @@
+<!-- TODO: Generate this dynamically as soon as I know how to do that in Angular -->
+<select [(ngModel)]="cinemaId">
+    <option value="0">Please select</option>
+    <option value="1" data-cinema-number="37094">CineStar Augsburg</option>
+    <option value="3" data-cinema-number="46776">CineStar Berlin - CUBIX am Alexanderplatz</option>
+    <option value="4" data-cinema-number="32381">CineStar Berlin - Treptower Park</option>
+    <option value="5" data-cinema-number="37653">CineStar Berlin - Tegel</option>
+    <option value="6" data-cinema-number="33898">CineStar Berlin - Hellersdorf</option>
+    <option value="9" data-cinema-number="39606">Kino in der KulturBrauerei - Berlin</option>
+    <option value="11" data-cinema-number="32374">Bonn Sternlichtspiele</option>
+    <option value="12" data-cinema-number="38716">CineStar Bremen - Kristall-Palast</option>
+    <option value="13" data-cinema-number="47397">CineStar Chemnitz - Am Roten Turm</option>
+    <option value="15" data-cinema-number="33931">CineStar Dortmund</option>
+    <option value="16" data-cinema-number="37175">CineStar Düsseldorf</option>
+    <option value="17" data-cinema-number="48577">CineStar Emden</option>
+    <option value="18" data-cinema-number="43316">CineStar Erfurt</option>
+    <option value="19" data-cinema-number="33976">CineStar Erlangen</option>
+    <option value="20" data-cinema-number="43377">CineStar Frankfurt am Main Metropolis</option>
+    <option value="21" data-cinema-number="47216">CineStar Frankfurt am Main - Mainzer Landstr.</option>
+    <option value="22" data-cinema-number="36055">CineStar Frankfurt (Oder)</option>
+    <option value="23" data-cinema-number="38821">CineStar Fulda</option>
+    <option value="24" data-cinema-number="38823">CineStar Garbsen</option>
+    <option value="26" data-cinema-number="32146">CineStar Greifswald</option>
+    <option value="27" data-cinema-number="34003">CineStar Hagen</option>
+    <option value="28" data-cinema-number="60940">CineStar Ingolstadt</option>
+    <option value="29" data-cinema-number="37108">CineStar Jena</option>
+    <option value="30" data-cinema-number="39796">Filmpalast am ZKM - Karlsruhe</option>
+    <option value="32" data-cinema-number="60936">CineStar Konstanz</option>
+    <option value="33" data-cinema-number="43337">CineStar Leipzig</option>
+    <option value="34" data-cinema-number="33140">Filmhaus Lübeck</option>
+    <option value="35" data-cinema-number="33139">CineStar Lübeck - Stadthalle</option>
+    <option value="36" data-cinema-number="38816">Ludwigshafen - CineStar</option>
+    <option value="37" data-cinema-number="36259">CineStar Magdeburg</option>
+    <option value="38" data-cinema-number="38696">CineStar Mainz</option>
+    <option value="40" data-cinema-number="32220">CineStar Neubrandenburg</option>
+    <option value="41" data-cinema-number="31460">Der Filmpalast Oberhausen im CentrO. - Oberhausen</option>
+    <option value="43" data-cinema-number="32261">CineStar Rostock (Lütten Klein)</option>
+    <option value="44" data-cinema-number="32258">CineStar Rostock Capitol</option>
+    <option value="45" data-cinema-number="42136">CineStar Saarbrücken</option>
+    <option value="46" data-cinema-number="38676">CineStar Siegen</option>
+    <option value="47" data-cinema-number="38678">CineStar Stade</option>
+    <option value="48" data-cinema-number="32283">CineStar Stralsund</option>
+    <option value="49" data-cinema-number="46236">CineStar Villingen-Schwenningen</option>
+    <option value="50" data-cinema-number="38779">CineStar Waren (Müritz)</option>
+    <option value="51" data-cinema-number="32300">CineStar Weimar</option>
+    <option value="52" data-cinema-number="38776">CineStar Wildau</option>
+    <option value="53" data-cinema-number="32307">CineStar Wismar</option>
+    <option value="54" data-cinema-number="37655">CineStar Wolfenbüttel</option>
+    <option value="55" data-cinema-number="70000">CineStar Remscheid</option>
+    <option value="57" data-cinema-number="80001">CineStar Neumünster</option>
+</select>
+<button [disabled]="cinemaId == 0">Select this cinema</button>
+Selected: {{cinemaId}}
