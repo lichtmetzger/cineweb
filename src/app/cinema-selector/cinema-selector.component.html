@@ -1,10 +1,10 @@
 <select [(ngModel)]="cinemaId">
-    @for (cinema of cinemaData; track cinema.value) {
+    @for (cinema of cinemas; track cinema.id) {
         <option
-            value="{{ cinema.value }}"
-            [attr.data-cinema-number]="cinema.cinemaNumber"
+            value="{{ cinema.id }}"
+            [attr.data-cinema-number]="cinema.id"
         >
-            {{ cinema.label }}
+            {{ cinema.name }}
         </option>
     }
 </select>

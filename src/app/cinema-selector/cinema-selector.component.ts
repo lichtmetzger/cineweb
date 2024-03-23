@@ -1,10 +1,6 @@
-import { Component } from '@angular/core';
-
-interface CinemaData {
-    value: number;
-    label: string;
-    cinemaNumber: number;
-}
+import { Component, OnInit } from "@angular/core";
+import { Cinema } from "../api.interface";
+import { ApiService } from "../api.service";
 
 @Component({
     selector: 'app-cinema-selector',
@@ -12,37 +8,23 @@ interface CinemaData {
     styleUrl: './cinema-selector.component.scss',
 })
 
-export class CinemaSelectorComponent {
-    // TODO: Generate this dynamically as soon as I know how to do that in Angular
-    cinemaData: CinemaData[] = [
-        {
-            value: 0,
-            label: 'Please select',
-            cinemaNumber: 0
-        },
-        {
-            value: 1,
-            label: 'CineStar Augsburg',
-            cinemaNumber: 37094 },
-        {
-            value: 3,
-            label: 'CineStar Berlin - CUBIX am Alexanderplatz',
-            cinemaNumber: 46776,
-        },
-        {
-            value: 4,
-            label: 'CineStar Berlin - Treptower Park',
-            cinemaNumber: 32381,
-        },
-        {
-            value: 5,
-            label: 'CineStar Berlin - Tegel',
-            cinemaNumber: 37653
-        }
-    ];
-
+export class CinemaSelectorComponent implements OnInit {
     cinemaId = 0;
     cinemaSet = false;
+    cinemas: Cinema[] = [];
+
+    constructor(private apiService: ApiService) { }
+
+    ngOnInit(): void {
+        this.apiService.getCinemas().subscribe(
+            (data) => {
+                this.cinemas = data;
+            },
+            (error) => {
+                console.error('Error fetching users:', error);
+            }
+        );
+    }
 
     onSetCinema() {
         if(this.cinemaId != 0) {
